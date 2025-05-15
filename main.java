@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class main {
 
     public static boolean ehGrafoNaoDirecionadoValido(List<List<Integer>> grafo) {
         int V = grafo.size();
