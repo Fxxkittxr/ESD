@@ -1,6 +1,8 @@
 import java.util.*;
 
-public class main {
+import javax.swing.JFrame;
+
+public class Main {
 
     public static boolean ehGrafoNaoDirecionadoValido(List<List<Integer>> grafo) {
         int V = grafo.size();
@@ -37,9 +39,15 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("");
         System.out.print("Digite o número de vértices: ");
         int V = scanner.nextInt();
         scanner.nextLine(); // limpar buffer
+        System.out.println("");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("");
 
         List<List<Integer>> grafo = new ArrayList<>();
 
@@ -58,8 +66,23 @@ public class main {
             grafo.add(vizinhos);
         }
 
+        System.out.println("");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("");
         boolean resultado = ehGrafoNaoDirecionadoValido(grafo);
-        System.out.println("O grafo é válido? " + (resultado ? "Sim" : "Não"));
+        System.out.println("Essa construção forma um grafo válido? \n");
+        System.out.println( resultado ? "Sim" : "Não");
+        System.out.println("");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("");
+
+        if (resultado) {
+            JFrame frame = new JFrame("Visualização do Grafo");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(500, 500);
+            frame.add(new PainelGrafo(grafo));
+            frame.setVisible(true);
+        }
 
         scanner.close();
     }
